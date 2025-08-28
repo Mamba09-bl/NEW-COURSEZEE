@@ -111,7 +111,6 @@ router.post("/login",async(req,res)=>{
 
 🎉 Thank you for shopping with CourseZE!
 
-💰 Total Amount: RS ${totalAmount}
 
 Here are your course links:
 ${url}
