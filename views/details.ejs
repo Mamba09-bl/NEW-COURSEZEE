@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CourseZE - YouTube Lessons</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-gray-100">
+
+  <!-- Navbar -->
+ <nav class="bg-gradient-to-r from-gray-800 to-black text-white shadow-lg">
+    <div class="container mx-auto flex justify-between items-center px-6 py-4">
+      <h1 class="text-2xl font-extrabold tracking-wide">CourseZE</h1>
+      <ul class="flex space-x-6 font-semibold">
+        <li><a href="/trending" class="hover:text-yellow-400 transition">Home</a></li>
+        <li><a href="/home" class="hover:text-yellow-400 transition">Programming</a></li>
+        <li><a href="/graphic" class="hover:text-yellow-400 transition">Graphic designer</a></li>
+        <li><a href="/checkout" class="hover:text-yellow-400 transition">Cart</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="relative w-full h-[250px] flex items-center justify-center text-center bg-black">
+    <img src="/images/uploads/118.jpg" alt="Banner" class="absolute inset-0 w-full h-full object-cover opacity-40">
+    <div class="relative z-10">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-yellow-400 drop-shadow-lg">📚 Course Lessons</h1>
+      <p class="mt-4 text-lg text-gray-300">Explore all lessons from our YouTube playlist 🚀</p>
+    </div>
+  </header>
+
+  <!-- Lessons Section -->
+  <section class="container mx-auto px-6 py-12">
+    <% if (lessons.length > 0) { %>
+      <ul class="space-y-4 bg-gray-800 p-6 rounded-2xl shadow-xl">
+        <% lessons.forEach(lesson => { %>
+          <li class="text-lg leading-relaxed border-b border-gray-700 last:border-none pb-3">
+            <span class="font-semibold text-yellow-400">🎥 <%= lesson.snippet.title %></span>
+          </li>
+        <% }) %>
+      </ul>
+    <% } else { %>
+      <div class="text-center py-16">
+        <p class="text-lg text-gray-400">❌ No lessons found. Please check back later.</p>
+      </div>
+    <% } %>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-gray-400 py-6 mt-12">
+    <div class="container mx-auto text-center">
+      <p>© 2025 CourseZE. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CourseZE - YouTube Lessons</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-gray-100">
+
+  <!-- Navbar -->
+ <nav class="bg-gradient-to-r from-gray-800 to-black text-white shadow-lg">
+    <div class="container mx-auto flex justify-between items-center px-6 py-4">
+      <h1 class="text-2xl font-extrabold tracking-wide">CourseZE</h1>
+      <ul class="flex space-x-6 font-semibold">
+        <li><a href="/trending" class="hover:text-yellow-400 transition">Home</a></li>
+        <li><a href="/home" class="hover:text-yellow-400 transition">Programming</a></li>
+        <li><a href="/graphic" class="hover:text-yellow-400 transition">Graphic designer</a></li>
+        <li><a href="/checkout" class="hover:text-yellow-400 transition">Cart</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="text-center py-12 bg-gradient-to-r from-gray-800 to-black text-white shadow-md">
+    <h1 class="text-4xl md:text-5xl font-extrabold">📚 Course Lessons</h1>
+    <p class="mt-4 text-lg text-gray-300">Explore all the lessons from our YouTube playlist</p>
+  </header>
+
+  <!-- Lessons Section -->
+  <section class="container mx-auto px-6 py-12">
+    <% if (lessons.length > 0) { %>
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <% lessons.forEach(lesson => { %>
+          <div class="lesson bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition transform hover:scale-[1.02]">
+            <!-- Embedded Video -->
+            <iframe 
+              width="100%" 
+              height="220" 
+              src="https://www.youtube.com/embed/<%= lesson.snippet.resourceId.videoId %>" 
+              title="<%= lesson.snippet.title %>" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen
+              class="rounded-t-2xl">
+            </iframe>
+
+            <!-- Content -->
+            <div class="p-5">
+              <h3 class="text-xl font-bold text-yellow-400 mb-2"><%= lesson.snippet.title %></h3>
+              <p class="text-gray-300"><%= lesson.snippet.description.substring(0, 120) %>...</p>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    <% } else { %>
+      <div class="text-center py-12">
+        <p class="text-lg text-gray-400">❌ No lessons found. Please check back later.</p>
+      </div>
+    <% } %>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-gray-400 py-6 mt-12">
+    <div class="container mx-auto text-center">
+      <p>© 2025 CourseZE. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
