@@ -99,7 +99,7 @@ router.post("/login",async(req,res)=>{
        service: "gmail",
        auth: {
          user: "hamza.ahmed.abbasi07@gmail.com",
-         pass: "kdwp jglv jedy acij", // app password
+         pass: "tbuz nkvu qugi cfig", // app password
        },
      });
 
