@@ -98,8 +98,8 @@ router.post("/login",async(req,res)=>{
      const transporter = nodemailer.createTransport({
        service: "gmail",
        auth: {
-         user: "hamza.ahmed.abbasi07@gmail.com",
-         pass: "tbuz nkvu qugi cfig", // app password
+       user: process.env.GMAIL_USER,
+  pass: process.env.GMAIL_APP_PASS 
        },
      });
 
